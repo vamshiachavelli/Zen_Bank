@@ -20,7 +20,7 @@ class Bank():
         print(f"Account_banlance = {self.account_balance}")
 
     def withdraw(self):
-        amount = int(input("Enter amount to withdraw ="))
+        amount = int(input("Enter amount to withdraw = "))
         if amount > self.account_balance:
             print("Insufficient Funds")
         else:
@@ -29,12 +29,19 @@ class Bank():
             print(f"Current Account_Balance = {self.account_balance}")
     
     def deposit(self):
-        amount = int(input("Enter amount to deposit ="))
+        amount = int(input("Enter amount to deposit = "))
         self.account_balance += amount
         print("Successful Deposit")
         print(f"Current Account_Balance = {self.account_balance}")
 
 Accounts = []
+
+def check_account_exist(account_no : int):
+    global Accounts
+    for account in Accounts:
+        if account.account_number == account_no:
+            return account
+    return None
 while True:
     print("\nWelcome to _____Bank")
     print("--------------------")
@@ -42,7 +49,8 @@ while True:
     print("2. Custome INFO")
     print("3. Deposit amount")
     print("4. Withdraw amount")
-    print("5. Exit")
+    print("5. Transfer")
+    print("6. Exit")
     option = int(input("Choice your option - "))
     print(f"---Your have choice option--- '{option}' ")
     if option == 1:
@@ -75,6 +83,23 @@ while True:
                     search_account.info()
                     break
     elif option ==5:
+        sender_account = int(input("Enter sender account no = "))
+        reciver_account = int(input("Enter reciver account no = "))
+        sender_account_bank = check_account_exist(sender_account)
+        reciver_account_bank = check_account_exist(reciver_account)
+        if sender_account_bank != None and reciver_account_bank != None:
+            amount_transfer = int(input("Enter amount to transfer = "))
+            if amount_transfer <= sender_account_bank.account_balance:
+                sender_account_bank.account_balance -=amount_transfer
+                reciver_account_bank.account_balance += amount_transfer
+                print("Transfer Sucessful")
+                print(f"Sender balance = {sender_account_bank.account_balance}")
+                print(f"reciver balance = {reciver_account_bank.account_balance}")
+            else:
+                print("insufficent funds")
+        else:
+            print("Account not found")
+    elif option ==6:
         print("EXIT")
         break
     else:
