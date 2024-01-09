@@ -20,11 +20,8 @@ class Bank():
         print(f"Account_banlance = {self.account_balance}")
 
     def withdraw(self):
-<<<<<<< HEAD
         amount = int(input("Enter amount to withdraw = "))
-=======
         amount = int(input("Enter amount to withdraw ="))
->>>>>>> origin/main
         if amount > self.account_balance:
             print("Insufficient Funds")
         else:
@@ -33,17 +30,13 @@ class Bank():
             print(f"Current Account_Balance = {self.account_balance}")
     
     def deposit(self):
-<<<<<<< HEAD
         amount = int(input("Enter amount to deposit = "))
-=======
         amount = int(input("Enter amount to deposit ="))
->>>>>>> origin/main
         self.account_balance += amount
         print("Successful Deposit")
         print(f"Current Account_Balance = {self.account_balance}")
 
 Accounts = []
-<<<<<<< HEAD
 
 def check_account_exist(account_no : int):
     global Accounts
@@ -51,8 +44,6 @@ def check_account_exist(account_no : int):
         if account.account_number == account_no:
             return account
     return None
-=======
->>>>>>> origin/main
 while True:
     print("\nWelcome to _____Bank")
     print("--------------------")
@@ -60,12 +51,9 @@ while True:
     print("2. Custome INFO")
     print("3. Deposit amount")
     print("4. Withdraw amount")
-<<<<<<< HEAD
     print("5. Transfer")
     print("6. Exit")
-=======
     print("5. Exit")
->>>>>>> origin/main
     option = int(input("Choice your option - "))
     print(f"---Your have choice option--- '{option}' ")
     if option == 1:
@@ -98,7 +86,6 @@ while True:
                     search_account.info()
                     break
     elif option ==5:
-<<<<<<< HEAD
         sender_account = int(input("Enter sender account no = "))
         reciver_account = int(input("Enter reciver account no = "))
         sender_account_bank = check_account_exist(sender_account)
@@ -116,8 +103,6 @@ while True:
         else:
             print("Account not found")
     elif option ==6:
-=======
->>>>>>> origin/main
         print("EXIT")
         break
     else:
